@@ -1,0 +1,150 @@
+{
+  "bounds": [
+    1.5,
+    48,
+    3,
+    49.5
+  ],
+  "center": [
+    2.43,
+    48.63,
+    12
+  ],
+  "format": "png8",
+  "interactivity": false,
+  "minzoom": 11,
+  "maxzoom": 16,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "autopilot.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "linestring",
+      "extent": [
+        -5.15090902692709,
+        41.25866666334185,
+        9.74999995297843,
+        51.26831796992672
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "/* cycleway */ (SELECT way, name, ref, highway, route, tags->'cycleway' as cycleway, tags->'cycleway:left' as cycleway_l, tags->'cycleway:right' as cycleway_r, bicycle, tags->'bicycle:lanes' as bicycle_lanes  FROM planet_osm_line WHERE route='bicycle') as cycleway",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-573396.57,5050570.13,1085365.03,6668894.01",
+        "host": "localhost",
+        "user": "fr",
+        "dbname": "osm",
+        "password": "m4d31nfr4nc3",
+        "id": "cycleway",
+        "project": "CG91-cyclo-overlay",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleway_route",
+      "class": "cycleway",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleway_route"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -5.15090902692709,
+        41.25866666334185,
+        9.74999995297843,
+        51.26831796992672
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "/* cycleway */ (SELECT way, name, ref, highway, route, tags->'cycleway' as cycleway, tags->'cycleway:left' as cycleway_l, tags->'cycleway:right' as cycleway_r, bicycle, tags->'bicycle:lanes' as bicycle_lanes  FROM planet_osm_line WHERE bicycle='no') as cycleway",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-573396.57,5050570.13,1085365.03,6668894.01",
+        "host": "localhost",
+        "user": "fr",
+        "dbname": "osm",
+        "password": "m4d31nfr4nc3",
+        "id": "cycleway",
+        "project": "CG91-cyclo-overlay",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleways",
+      "class": "cycleway",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleways"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -5.15090902692709,
+        41.25866666334185,
+        9.74999995297843,
+        51.26831796992672
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "/* cycleway */ (SELECT way, name, ref, highway, route, tags->'cycleway' as cycleway, tags->'cycleway:left' as cycleway_l, tags->'cycleway:right' as cycleway_r, bicycle, tags->'bicycle:lanes' as bicycle_lanes  FROM planet_osm_line WHERE tags ? 'cycleway' or tags ? 'cycleway:left' or tags ? 'cycleway:right' or highway in ('cycleway')) as cycleway",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-573396.57,5050570.13,1085365.03,6668894.01",
+        "host": "localhost",
+        "user": "fr",
+        "dbname": "osm",
+        "password": "m4d31nfr4nc3",
+        "id": "cycleway",
+        "project": "CG91-cyclo-overlay",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleway_lane",
+      "class": "cycleway",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleway_lane"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -5.15090902692709,
+        41.25866666334185,
+        9.74999995297843,
+        51.26831796992672
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "/* cycliste-poi */ (SELECT way,amenity,shop, highway, tags->'bicycle' as bicycle FROM planet_osm_point WHERE amenity in ('bicycle_parking','fuel') or shop='bicycle' or tags->'bicycle'='no' or highway='steps') as cycliste",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-573396.57,5050570.13,1085365.03,6668894.01",
+        "host": "localhost",
+        "user": "fr",
+        "dbname": "osm",
+        "password": "m4d31nfr4nc3",
+        "id": "poi",
+        "project": "CG91-cyclo-overlay",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "poi",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "poi",
+      "status": "off"
+    }
+  ],
+  "scale": 1,
+  "metatile": 8,
+  "_basemap": "examples.map-vyofok3q",
+  "name": "Voies cyclables IdF",
+  "description": "overlay des voies cyclables d'Ile de France",
+  "attribution": "data © openstreetmap / tiles CG91"
+}
